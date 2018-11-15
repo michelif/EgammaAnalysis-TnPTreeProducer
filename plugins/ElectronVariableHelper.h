@@ -81,6 +81,10 @@ ElectronVariableHelper<T>::ElectronVariableHelper(const edm::ParameterSet & iCon
   produces<edm::ValueMap<float> >("ioemiop");
   produces<edm::ValueMap<float> >("5x5circularity");
 
+  ///try usefloats
+  produces<edm::ValueMap<float> >("elptafterSS");
+  produces<edm::ValueMap<float> >("elecalEPostCorr");
+  
   if( iConfig.existsAs<edm::InputTag>("pfCandColl") ) {
     pfCandToken_ = consumes<CandView>(iConfig.getParameter<edm::InputTag>("pfCandColl"));
   }
@@ -131,6 +135,10 @@ void ElectronVariableHelper<T>::produce(edm::Event & iEvent, const edm::EventSet
   std::vector<float> sipVals;
   std::vector<float> mhVals;
 
+  //SJ
+  std::vector<float> pt_afterSSVals;
+  std::vector<float> ecal_postCorrVals;
+
   std::vector<float> l1EVals;
   std::vector<float> l1EtVals;
   std::vector<float> l1EtaVals;
@@ -153,6 +161,14 @@ void ElectronVariableHelper<T>::produce(edm::Event & iEvent, const edm::EventSet
 
     dzVals.push_back(probe->gsfTrack()->dz(vtx->position()));
     dxyVals.push_back(probe->gsfTrack()->dxy(vtx->position()));
+    if (std::is_same<T, pat::Electron>::value) {
+      pt_afterSSVals.push_back(l.userFloat("ecalTrkEnergyPostCorr")*l.pt()/l.p());
+      ecal_postCorrVals.push_back(l.userFloat("ecalEnergyPostCorr"));
+    }
+    else{
+      pt_afterSSVals.push_back(-99);
+      ecal_postCorrVals.push_back(-99);
+    }
 
     // SIP
     float IP      = fabs(l.dB(pat::Electron::PV3D));
@@ -241,6 +257,7 @@ void ElectronVariableHelper<T>::produce(edm::Event & iEvent, const edm::EventSet
   store("dxy", dxyVals, probes, iEvent);
   store("sip", sipVals, probes, iEvent);
   store("missinghits", mhVals, probes, iEvent);
+  store("gsfhits", gsfhVals, probes, iEvent);
   store("l1e", l1EVals, probes, iEvent);
   store("l1et", l1EtVals, probes, iEvent);
   store("l1eta", l1EtaVals, probes, iEvent);
@@ -252,6 +269,8 @@ void ElectronVariableHelper<T>::produce(edm::Event & iEvent, const edm::EventSet
   store("ioemiop", ioemiopVals, probes, iEvent);
   store("5x5circularity", ocVals, probes, iEvent);
 
+  store("elptafterSS", pt_afterSSVals, probes, iEvent);
+  store("elecalEPostCorr", ecal_postCorrVals, probes, iEvent);
 
 }
 

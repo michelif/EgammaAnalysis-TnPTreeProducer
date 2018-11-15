@@ -31,7 +31,8 @@ EleProbeVariablesToStore = cms.PSet(
     el_e      = cms.string("energy"),
     el_q      = cms.string("charge"),
     el_isGap  = cms.string("isGap"),
-    
+    #el_pt_afterSS = cms.string('userFloat("ecalTrkEnergyPostCorr")*pt/p'),
+    el_pt_afterSS = cms.InputTag("eleVarHelper:elptafterSS"),
     ## super cluster quantities
     el_sc_e          = cms.string("superCluster().energy"),
     el_sc_rawE       = cms.string("superCluster().rawEnergy"),
@@ -42,6 +43,9 @@ EleProbeVariablesToStore = cms.PSet(
     el_sc_abseta     = cms.string("abs(-log(tan(superCluster.position.theta/2)))"),
     el_seed_e        = cms.string("superCluster.seed.energy"), 
     el_ecalEnergy    = cms.string("ecalEnergy()"),
+    el_ecalEPostCorr = cms.InputTag("eleVarHelper:elecalEPostCorr"),
+
+    
 #    el_xseed_e       = cms.string("superCluster.seed.seed.energy"), 
 
     #id based
