@@ -190,6 +190,11 @@ def setSequences(process, options):
         process.probeEleCutBasedMedium94XV2 +
         process.probeEleCutBasedTight94XV2  +
 
+        process.probeEleCutBasedVeto94XV2HEMSafe   +
+        process.probeEleCutBasedLoose94XV2HEMSafe  +
+        process.probeEleCutBasedMedium94XV2HEMSafe +
+        process.probeEleCutBasedTight94XV2HEMSafe  +
+
         process.probeEleCutBasedVeto94XV2MinPtCut   +
         process.probeEleCutBasedLoose94XV2MinPtCut  +
         process.probeEleCutBasedMedium94XV2MinPtCut +
@@ -264,42 +269,42 @@ def setSequences(process, options):
         #process.probePhoCutBasedMedium    +
         #process.probePhoCutBasedTight     +
         #process.probePhoMVA               +
-        process.probePhoCutBasedLoose80X  +
-        process.probePhoCutBasedMedium80X +
-        process.probePhoCutBasedTight80X  +
-        process.probePhoMVA80Xwp90       +
-        process.probePhoMVA80Xwp80       +
-        process.probePhoCutBasedLoose94X  +
-        process.probePhoCutBasedMedium94X +
-        process.probePhoCutBasedTight94X  +
-        process.probePhoCutBasedLoose100XV2  +
-        process.probePhoCutBasedMedium100XV2 +
-        process.probePhoCutBasedTight100XV2  +
-        process.probePhoCutBasedLoose100XV2MinPtCut  +
-        process.probePhoCutBasedMedium100XV2MinPtCut +
-        process.probePhoCutBasedTight100XV2MinPtCut  +
-        process.probePhoCutBasedLoose100XV2PhoSCEtaMultiRangeCut  +
-        process.probePhoCutBasedMedium100XV2PhoSCEtaMultiRangeCut +
-        process.probePhoCutBasedTight100XV2PhoSCEtaMultiRangeCut  +
-        process.probePhoCutBasedLoose100XV2PhoSingleTowerHadOverEmCut  +
-        process.probePhoCutBasedMedium100XV2PhoSingleTowerHadOverEmCut +
-        process.probePhoCutBasedTight100XV2PhoSingleTowerHadOverEmCut  +
-
-        process.probePhoCutBasedLoose100XV2PhoFull5x5SigmaIEtaIEtaCut  +
-        process.probePhoCutBasedMedium100XV2PhoFull5x5SigmaIEtaIEtaCut +
-        process.probePhoCutBasedTight100XV2PhoFull5x5SigmaIEtaIEtaCut  +
-
-        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEACut  +
-        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEACut +
-        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEACut  +
-
-        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEAAndQuadScalingCut  +
-        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEAAndQuadScalingCut +
-        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEAAndQuadScalingCut  +
-
-        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEACut1  +
-        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEACut1 +
-        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEACut1  +
+#        process.probePhoCutBasedLoose80X  +
+#        process.probePhoCutBasedMedium80X +
+#        process.probePhoCutBasedTight80X  +
+#        process.probePhoMVA80Xwp90       +
+#        process.probePhoMVA80Xwp80       +
+#        process.probePhoCutBasedLoose94X  +
+#        process.probePhoCutBasedMedium94X +
+#        process.probePhoCutBasedTight94X  +
+#        process.probePhoCutBasedLoose100XV2  +
+#        process.probePhoCutBasedMedium100XV2 +
+#        process.probePhoCutBasedTight100XV2  +
+#        process.probePhoCutBasedLoose100XV2MinPtCut  +
+#        process.probePhoCutBasedMedium100XV2MinPtCut +
+#        process.probePhoCutBasedTight100XV2MinPtCut  +
+#        process.probePhoCutBasedLoose100XV2PhoSCEtaMultiRangeCut  +
+#        process.probePhoCutBasedMedium100XV2PhoSCEtaMultiRangeCut +
+#        process.probePhoCutBasedTight100XV2PhoSCEtaMultiRangeCut  +
+#        process.probePhoCutBasedLoose100XV2PhoSingleTowerHadOverEmCut  +
+#        process.probePhoCutBasedMedium100XV2PhoSingleTowerHadOverEmCut +
+#        process.probePhoCutBasedTight100XV2PhoSingleTowerHadOverEmCut  +
+#
+#        process.probePhoCutBasedLoose100XV2PhoFull5x5SigmaIEtaIEtaCut  +
+#        process.probePhoCutBasedMedium100XV2PhoFull5x5SigmaIEtaIEtaCut +
+#        process.probePhoCutBasedTight100XV2PhoFull5x5SigmaIEtaIEtaCut  +
+#
+#        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEACut  +
+#        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEACut +
+#        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEACut  +
+#
+#        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEAAndQuadScalingCut  +
+#        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEAAndQuadScalingCut +
+#        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEAAndQuadScalingCut  +
+#
+#        process.probePhoCutBasedLoose100XV2PhoAnyPFIsoWithEACut1  +
+#        process.probePhoCutBasedMedium100XV2PhoAnyPFIsoWithEACut1 +
+#        process.probePhoCutBasedTight100XV2PhoAnyPFIsoWithEACut1  +
 
         process.probePhoMVA94Xwp90       +
         process.probePhoMVA94Xwp80       +

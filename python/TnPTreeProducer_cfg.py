@@ -24,7 +24,7 @@ varOptions.register(
     )
 
 varOptions.register(
-    "doPhoID", True,
+    "doPhoID", False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Include tree for photon ID SF"
@@ -295,6 +295,11 @@ process.tnpEleIDs = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                         passingLoose94XV2   = cms.InputTag("probeEleCutBasedLoose94XV2" ),
                                         passingMedium94XV2  = cms.InputTag("probeEleCutBasedMedium94XV2"),
                                         passingTight94XV2   = cms.InputTag("probeEleCutBasedTight94XV2" ),
+
+                                        passingVeto94XV2HEMSafe    = cms.InputTag("probeEleCutBasedVeto94XV2HEMSafe"  ),
+                                        passingLoose94XV2HEMSafe   = cms.InputTag("probeEleCutBasedLoose94XV2HEMSafe" ),
+                                        passingMedium94XV2HEMSafe  = cms.InputTag("probeEleCutBasedMedium94XV2HEMSafe"),
+                                        passingTight94XV2HEMSafe   = cms.InputTag("probeEleCutBasedTight94XV2HEMSafe" ),
 
                                         passingVeto94XV2MinPtCut    = cms.InputTag("probeEleCutBasedVeto94XV2MinPtCut"  ),
                                         passingLoose94XV2MinPtCut   = cms.InputTag("probeEleCutBasedLoose94XV2MinPtCut" ),

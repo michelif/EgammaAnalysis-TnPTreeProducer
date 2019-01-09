@@ -22,8 +22,8 @@ def setIDs(process, options):
                      'RecoEgamma.PhotonIdentification.Identification.mvaPhotonID_Spring16_nonTrig_V1_cff',
                      'RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_94X_V1_cff',
                      'RecoEgamma.PhotonIdentification.Identification.mvaPhotonID_Fall17_94X_V1_cff',
-                     'RecoEgamma.PhotonIdentification.Identification.mvaPhotonID_Fall17_94X_V2_cff',
-                     'RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_100X_V2_cff'
+#                     'RecoEgamma.PhotonIdentification.Identification.mvaPhotonID_Fall17_94X_V2_cff',
+#                     'RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_100X_V2_cff'
                      ]
                  
     for idmod in my_id_modules:

@@ -29,7 +29,8 @@ def setIDs(process, options):
         'RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_iso_V1_cff',
         'RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_noIso_V2_cff',
         'RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_iso_V2_cff',
-        'RecoEgamma.ElectronIdentification.Identification.cutBasedElectronID_Fall17_94X_V2_cff'
+        'RecoEgamma.ElectronIdentification.Identification.cutBasedElectronID_Fall17_94X_V2_cff',
+        'RecoEgamma.ElectronIdentification.Identification.cutBasedElectronID_Fall17_94X_V2_HEMSafe_cff'
        ]
 
     ### add only miniAOD supported IDs
@@ -41,7 +42,7 @@ def setIDs(process, options):
 
     process.egmGsfElectronIDs.physicsObjectSrc     = cms.InputTag(options['ELECTRON_COLL'])
     process.electronMVAValueMapProducer.srcMiniAOD = cms.InputTag(options['ELECTRON_COLL'])
-    process.electronRegressionValueMapProducer.srcMiniAOD = cms.InputTag(options['ELECTRON_COLL'])
+#    process.electronRegressionValueMapProducer.srcMiniAOD = cms.InputTag(options['ELECTRON_COLL'])
 
     process.probeEleCutBasedVeto = cms.EDProducer(eleProducer,
                                                       input     = cms.InputTag("goodElectrons"),
@@ -193,6 +194,16 @@ def setIDs(process, options):
     process.probeEleCutBasedLoose94XV2.selection  = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-loose"  )
     process.probeEleCutBasedMedium94XV2.selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-medium"  )
     process.probeEleCutBasedTight94XV2.selection  = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight"  )
+
+    process.probeEleCutBasedVeto94XV2HEMSafe   = process.probeEleCutBasedVeto.clone()
+    process.probeEleCutBasedLoose94XV2HEMSafe  = process.probeEleCutBasedVeto.clone()
+    process.probeEleCutBasedMedium94XV2HEMSafe = process.probeEleCutBasedVeto.clone()
+    process.probeEleCutBasedTight94XV2HEMSafe  = process.probeEleCutBasedVeto.clone()
+    process.probeEleCutBasedVeto94XV2HEMSafe.selection   = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-HEMSafe-veto"  )
+    process.probeEleCutBasedLoose94XV2HEMSafe.selection  = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-HEMSafe-loose"  )
+    process.probeEleCutBasedMedium94XV2HEMSafe.selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-HEMSafe-medium"  )
+    process.probeEleCutBasedTight94XV2HEMSafe.selection  = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-HEMSafe-tight"  )
+
 
     process.probeEleCutBasedVeto94XV2MinPtCut   = process.probeEleCutBasedVetoMinPtCut.clone()
     process.probeEleCutBasedLoose94XV2MinPtCut  = process.probeEleCutBasedVetoMinPtCut.clone()

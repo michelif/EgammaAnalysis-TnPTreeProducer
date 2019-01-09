@@ -37,13 +37,13 @@ from WMCore.Configuration import Configuration
 
 config = config()
 
-submitVersion ="ECAL_NOISE"
+submitVersion ="HEMSafe"
 doEleTree = 'doEleID=True'
-doPhoTree = 'doPhoID=True'
+doPhoTree = 'doPhoID=False'
 doHLTTree = 'doTrigger=False'
 calibEn   = 'useCalibEn=False'
 
-mainOutputDir = '/store/group/phys_egamma/swmukher/rereco2018/%s' % submitVersion
+mainOutputDir = '/store/group/phys_egamma/micheli/IDTests/rereco2018/%s' % submitVersion
 
 config.General.requestName = ''
 config.General.transferLogs = False
@@ -93,14 +93,14 @@ if __name__ == '__main__':
 #    config.General.requestName  = 'RelValZEE_13_CMSSW_10_2_5-PU25ns_102X_upgrade2018_realistic_v12_Can30fb_v1_HS_rsb'
 #    submit(config)
 
-
-    config.Data.splitting     = 'FileBased'
-    config.Data.unitsPerJob   = 5
-    config.Data.inputDataset    = '/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM'
-    config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'mc')
-    config.JobType.pyCfgParams  = ['isMC=True',doEleTree,doPhoTree,'GT=102X_upgrade2018_realistic_v12']
-    config.General.requestName  = 'DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_update2'
-    submit(config)
+## this is the last MC
+#    config.Data.splitting     = 'FileBased'
+#    config.Data.unitsPerJob   = 5
+#    config.Data.inputDataset    = '/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM'
+#    config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'mc')
+#    config.JobType.pyCfgParams  = ['isMC=True',doEleTree,doPhoTree,'GT=102X_upgrade2018_realistic_v12']
+#    config.General.requestName  = 'DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_update2'
+#    submit(config)
 
 #    config.Data.splitting     = 'FileBased'
 #    config.Data.unitsPerJob   = 5
@@ -146,11 +146,11 @@ if __name__ == '__main__':
 
 
     ##### now submit DATA
-#    config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'data')
-#    config.Data.splitting     = 'LumiBased'
-#    config.Data.lumiMask      = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt'
-#    config.Data.unitsPerJob   = 80
-#    config.JobType.pyCfgParams  = ['isMC=False',doEleTree,doPhoTree,'GT=101X_dataRun2_Prompt_v11']
+    config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'data')
+    config.Data.splitting     = 'LumiBased'
+    config.Data.lumiMask      = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt'
+    config.Data.unitsPerJob   = 80
+    config.JobType.pyCfgParams  = ['isMC=False',doEleTree,doPhoTree,'GT=101X_dataRun2_Prompt_v11']
 
 #    config.General.requestName  = 'Run2018A-22Jun2018-v1'
 #    config.Data.inputDataset    = '/EGamma/Run2018A-22Jun2018-v1/MINIAOD'
@@ -176,10 +176,12 @@ if __name__ == '__main__':
 #    config.Data.inputDataset    = '/EGamma/Run2018D-PromptReco-v1/MINIAOD'
 #    submit(config)    
 
-#    config.General.requestName  = 'Run2018D_prompt_v2'
-#    config.Data.inputDataset    = '/EGamma/Run2018D-PromptReco-v2/MINIAOD'
-#    submit(config)    
+    config.General.requestName  = 'Run2018D_prompt_v2'
+    config.Data.inputDataset    = '/EGamma/Run2018D-PromptReco-v2/MINIAOD'
+    submit(config)    
  
+
+
 
 #    config.General.requestName  = 'Prompt2018_RunA_v1'
 #    config.Data.inputDataset    = '/EGamma/Run2018A-PromptReco-v1/MINIAOD'
